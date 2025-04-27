@@ -28,13 +28,12 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (credentials, thunkAPI) => {
     try {
-      console.log("LogIn credentials:", credentials); // Gönderilen giriş bilgilerini kontrol et
+      
       const res = await axios.post("/users/login", credentials);
-      console.log("LogIn response:", res.data); // API'den dönen yanıtı kontrol et
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      console.error("LogIn error:", error.message); // Hata mesajını logla
+      console.error("LogIn error:", error.message); 
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -17,11 +17,10 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async ({ name, number }, thunkAPI) => {
     try {
-      console.log("addContact payload:", { name, number }); // Gönderilen veriyi kontrol et
-      const response = await axios.post("/contacts", { name, number }); // name ve number gönderiliyor
+      const response = await axios.post("/contacts", { name, number }); 
       return response.data;
     } catch (e) {
-      console.error("addContact error:", e.response?.data || e.message); // Hata mesajını göster
+      console.error("addContact error:", e.response?.data || e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }

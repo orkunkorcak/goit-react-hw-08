@@ -15,7 +15,7 @@ const LoginForm = () => {
     const validationSchema = Yup.object({
         email: Yup.string().email("Invalid email address").required("Required"),
         password: Yup.string()
-        .min(8, "Must be at least 8 characters")
+        .min(6, "Must be at least 6 characters")
         .required("Required"),
     });
     
